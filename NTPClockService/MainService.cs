@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace NTPClockService
@@ -14,6 +15,11 @@ namespace NTPClockService
 
         public void Start()
         {
+            foreach (var p in Process.GetProcesses().Where(x => x.ProcessName.Contains("NTPClock")))
+            {
+                p.Kill();
+            }
+
             this.process = new Process
                            {
                                StartInfo = { FileName = Path.Combine(CurrentDirectory, "NTPClock.exe"), UseShellExecute = false },
