@@ -15,7 +15,7 @@ namespace NTPClockService
 
         public void Start()
         {
-            foreach (var p in Process.GetProcesses().Where(x => x.ProcessName.Contains("NTPClock")))
+            foreach (var p in Process.GetProcessesByName("NTPClock"))
             {
                 p.Kill();
             }

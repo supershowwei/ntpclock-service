@@ -12,6 +12,7 @@ namespace NTPClockService
                     {
                         hc.SetServiceName("NTPClockService");
                         hc.SetDisplayName("NTPClock Service");
+                        hc.SetDescription("NTPClock Service");
 
                         hc.StartAutomatically();
 
